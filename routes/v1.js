@@ -15,7 +15,6 @@ router.put('/:model/:id', handleUpdate);
 router.delete('/:model/:id', handleDelete);
 
 
-
 async function handleGetById(req, res){
   const Id = req.params.id;
   const results = await req.model.get(Id);
