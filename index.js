@@ -1,8 +1,9 @@
 'use strict';
 
+require('dotenv').config(); // Keep at top
+
 const server =require('./lib/server.js');
 const mongoose = require('mongoose');
-require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 
