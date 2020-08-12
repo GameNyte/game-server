@@ -16,11 +16,12 @@ router.delete('/:model/:id', handleDelete);
 
 
 
+
+
 async function handleGetById(req, res) {
   const Id = req.params.id;
   const results = await req.model.get(Id);
   res.send('Here are your Users! ' + results);
-
 }
 
 

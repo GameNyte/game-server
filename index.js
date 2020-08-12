@@ -1,6 +1,8 @@
 'use strict';
 require('dotenv').config();
 
+require('dotenv').config(); // Keep at top
+
 const server =require('./lib/server.js');
 const mongoose = require('mongoose');
 
