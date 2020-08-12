@@ -73,7 +73,7 @@ router.post('/profile-img-upload', (req, res) => {
         });
       }
     }
-  }).then();
+  })
 });
 // We export the router so that the server.js file can pick it up
 module.exports = router;
