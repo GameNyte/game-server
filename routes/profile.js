@@ -5,15 +5,12 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 const Model = require('../middleware/models.js');
-
 router.param('model', Model);
-
 const s3 = new aws.S3({
   accessKeyId: process.env.ACCESS_KEY,
   secretAccessKey: process.env.SECRET_ACCESS_KEY,
   Bucket: process.env.BUCKET_NAME
 });
-
 const uploadsBusinessGallery = multer({
   storage: multerS3({
     s3: s3,
@@ -28,7 +25,6 @@ const uploadsBusinessGallery = multer({
     checkFileType(file, cb);
   }
 }).array('galleryImage', 4);
-
 function checkFileType(file, cb) {
   // Allowed ext
   const filetypes = /jpeg|jpg|png|gif/;
@@ -42,22 +38,16 @@ function checkFileType(file, cb) {
     cb('Error: Images Only!');
   }
 }
-
-
-
 router.post('/profile-img-upload', (req, res) => {
   uploadsBusinessGallery(req, res, (error) => {
-    console.log('files', req.files);
     if (error) {
       console.log('errors', error);
       res.json({ error: error });
     } else {
-      // If File not found
       if (req.files === undefined) {
         console.log('Error: No File Selected!');
         res.json('Error: No File Selected');
       } else {
-        // If Success
         let fileArray = req.files,
           fileLocation;
         const galleryImgLocationArray = [];
@@ -66,7 +56,6 @@ router.post('/profile-img-upload', (req, res) => {
           console.log('filenm', fileLocation);
           galleryImgLocationArray.push(fileLocation)
         }
-        // Save the file name into database
         res.json({
           filesArray: fileArray,
           locationArray: galleryImgLocationArray
@@ -75,5 +64,5 @@ router.post('/profile-img-upload', (req, res) => {
     }
   })
 });
-// We export the router so that the server.js file can pick it up
+
 module.exports = router;
