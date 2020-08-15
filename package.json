@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/GameNyte/game-server#readme",
   "dependencies": {
+    "@code-fellows/supergoose": "^1.0.2",
     "aws-sdk": "^2.730.0",
     "base-64": "^0.1.0",
     "bcrypt": "^5.0.0",
@@ -38,6 +39,7 @@
     "path": "^0.12.7",
     "rpg-dice-roller": "^4.4.1",
     "socket.io": "^2.3.0",
-    "superagent": "^6.0.0"
+    "superagent": "^6.0.0",
+    "supertest": "^4.0.2"
   }
 }

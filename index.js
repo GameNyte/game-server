@@ -5,7 +5,7 @@ require('dotenv').config();
 const server =require('./lib/server.js');
 const mongoose = require('mongoose');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 mongoose.connect(process.env.MONGO_ATLAS_URI, {
   useCreateIndex: true,
