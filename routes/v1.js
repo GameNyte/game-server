@@ -7,13 +7,12 @@ const Model = require('../middleware/models.js');
 
 router.param('model', Model);
 
-// Define CRUD routes, GET, POST, PUT, DELETE
+
 router.get('/:model', handleGetAll);
 router.get('/:model/:id', handleGetById);
 router.post('/:model', handleCreate);
 router.put('/:model/:id', handleUpdate);
 router.delete('/:model/:id', handleDelete);
-
 
 
 

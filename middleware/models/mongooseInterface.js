@@ -16,6 +16,10 @@ class MongoInterface {
     return newObject.save(newObject);
   }
 
+  exists(data) {
+    return this.schema.exists(data);
+  }
+
   update(_id, data){
     return this.schema.findByIdAndUpdate(_id, data);
   }
